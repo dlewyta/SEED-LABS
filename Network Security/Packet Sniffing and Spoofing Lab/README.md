@@ -14,5 +14,5 @@ With root permission enabled, sniffer.py will show different packets that are se
 #### Without Root Permission
 <img width="1268" height="388" alt="image" src="https://github.com/user-attachments/assets/08b92efe-b6a2-468d-8279-4af1c09a6d94" />
 
-Without root permission sniffer.py will not run. This is because all sniffers put the network adapter into promiscuous mode and this requires root permissions. Without root permissions, any user could control and see the full traffic going in and out of your device. Promiscuous mode is a network setting that 
+Without root permission sniffer.py will not run. This is because all sniffers put the network adapter into promiscuous mode and this requires root permissions. Without root permissions, any user could control and see the full traffic going in and out of your device. Promiscuous mode is a network setting that allows a device to intercept and read all data packets passing through its network adapter (rather than just those data packets addressed to it).
 
