@@ -35,3 +35,11 @@ An ICMPv6 Neighbour Discovery is a part of the Neighbor Discovery Protocol for I
 An ICMPv6 Neighbour Discovery Option is a variable-length data field unit within ICMPv6 messages. They are primarily used to share MAC addresses, provide specific link parameters (like MTUs), and support IPv6 Stateless Address Autoconfiguration (SLAAC)
 
 **B. Capture any TCP packet that comes from a particular IP and with a destination port number 23**
+<img width="1841" height="732" alt="image" src="https://github.com/user-attachments/assets/ba227440-dafe-4ddb-b1ea-7ca95c5b9936" />
+The image shown is the results of one packet when the command "Telnet 10.9.0.5" is ran while the sniffer is running. Upon running the Telnet command I was asked to log in. I did this by using the username "seed" and the password "dees". The reason I ran a Telnet command is because port 23 is the port for Telnet
+The packets printed only run on a given TCP through port 23 (Telnet). When I tried to send some data through a different port (port 80 for HTTP) I got the following results:
+<img width="844" height="84" alt="image" src="https://github.com/user-attachments/assets/6de39e48-d01e-4575-80e5-09f9909aa9cf" />
+
+
+<img width="1069" height="321" alt="image" src="https://github.com/user-attachments/assets/caf4ddb4-35ce-443a-b1a8-c5c86e727ace" />
+
