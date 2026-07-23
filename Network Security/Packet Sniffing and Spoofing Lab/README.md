@@ -40,6 +40,16 @@ The image shown is the results of one packet when the command "Telnet 10.9.0.5" 
 The packets printed only run on a given TCP through port 23 (Telnet). When I tried to send some data through a different port (port 80 for HTTP) I got the following results:
 <img width="844" height="84" alt="image" src="https://github.com/user-attachments/assets/6de39e48-d01e-4575-80e5-09f9909aa9cf" />
 
+If I try to use the machine home IP or really any other IP than the specified IP on the correct port (port 23) I get the following response. Even though the connection is succussful, no data is sniffed because the IP address is incorrect.
+<img width="727" height="51" alt="image" src="https://github.com/user-attachments/assets/02a49441-b928-4565-be82-f7b5d16bfd31" />
 
-<img width="1069" height="321" alt="image" src="https://github.com/user-attachments/assets/caf4ddb4-35ce-443a-b1a8-c5c86e727ace" />
+The code I used is very similar to sniffer.py. I simply added in a bpf_filter line which takes tcp (so only tcp connection works). It also sets the destination host to 10.9.0.5 (the container for host A, this can be changed I just used 10.9.0.5 as an example) and I set the destination port to 23. This is done because the data being sent ends up going to the set IP address and port 23. If I set the host 10.9.0.5 to src (source) then it fails because that would block packets sent from 10.9.0.5 to some other address.
+<img width="1052" height="301" alt="image" src="https://github.com/user-attachments/assets/e55656b8-2db5-414c-b2d2-86ad597d1d35" />
+
+**C. Capture packets coming from or going to a particular subnet. You can pick any subnet, such as 128.230.0.0/16; you should not pick the subnet that your VM is attached to**
+<img width="1836" height="722" alt="image" src="https://github.com/user-attachments/assets/f753a41e-b886-4a53-9dab-bf2e6ca35e06" />
+The packet shown is from the subnet 128.230.0.0, and the IP 128.230.0.11/16 is pinged. 
+
+<img width="762" height="306" alt="image" src="https://github.com/user-attachments/assets/b9110d10-804e-432c-92f7-ed2887122845" />
+The code I used was just like the last 2 examples, only this time I added in the line subnet=('net 128.230.0.0/16') and made that the filter. In order to run the program successfully I needed to put one terminal in the attacker container and run subnet_sniffer.py, and open the host B container in another terminal and run the command ping 128.230.0.11. There is no reason I chose 128.230.0.11, it could have been any other value as long as it was in the same subnet and existed (i.e. 128.230.0.1)
 
