@@ -51,5 +51,7 @@ The code I used is very similar to sniffer.py. I simply added in a bpf_filter li
 The packet shown is from the subnet 128.230.0.0, and the IP 128.230.0.11/16 is pinged. 
 
 <img width="762" height="306" alt="image" src="https://github.com/user-attachments/assets/b9110d10-804e-432c-92f7-ed2887122845" />
-The code I used was just like the last 2 examples, only this time I added in the line subnet=('net 128.230.0.0/16') and made that the filter. In order to run the program successfully I needed to put one terminal in the attacker container and run subnet_sniffer.py, and open the host B container in another terminal and run the command ping 128.230.0.11. There is no reason I chose 128.230.0.11, it could have been any other value as long as it was in the same subnet and existed (i.e. 128.230.0.1)
+The code I used was just like the last 2 examples, only this time I added in the line subnet=('net 128.230.0.0/16') and made that the filter. In order to run the program successfully I needed to put one terminal in the attacker container and run subnet_sniffer.py, and open the host B container in another terminal and run the command ping 128.230.0.11. There is no reason I chose 128.230.0.11, it could have been any other value as long as t was in the same subnet and existed (i.e. 128.230.0.1)
+
+### 1.2 Spoofing ICMP Packets
 
